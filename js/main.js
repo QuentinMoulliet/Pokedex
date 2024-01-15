@@ -1,9 +1,11 @@
 const main = {
 
     currentInfoBubble: null,
+    currentAboutBubble: null,
 
     init: function () {
         main.allItems();
+        main.handleCreateAboutBubble();
         main.displayPokemons();
         main.handleClickPokemon();
         main.handleCreateInfoBubble();
@@ -62,6 +64,7 @@ const main = {
 
         cardElement.addEventListener('click', function (event) {
             event.stopPropagation();
+            console.log(pokemon);
 
             if (main.currentInfoBubble) {
                 main.currentInfoBubble.style.display = 'none';
@@ -84,7 +87,7 @@ const main = {
     },
 
     handleAddInfoBubble: function (infoBubble, pokemon) {
-        console.log(pokemon);
+        
 
         infoBubble.innerHTML = '';
 
@@ -95,7 +98,7 @@ const main = {
         const infoLeft = document.createElement('div');
         infoLeft.classList.add('info-left');
         info.appendChild(infoLeft);
-        
+
         const image = document.createElement('img');
         image.id = 'image';
         image.src = pokemon.sprites.regular;
@@ -199,7 +202,7 @@ const main = {
         statBar.appendChild(hpBarContainer);
         const hpBar = document.createElement('div');
         hpBar.classList.add('stat-bar');
-        hpBar.style.width = (pokemon.stats.hp * 100/255) + '%';
+        hpBar.style.width = (pokemon.stats.hp * 100 / 255) + '%';
         hpBarContainer.appendChild(hpBar);
 
         const attack = document.createElement('p');
@@ -210,7 +213,7 @@ const main = {
         statBar.appendChild(attackBarContainer);
         const attackBar = document.createElement('div');
         attackBar.classList.add('stat-bar');
-        attackBar.style.width = (pokemon.stats.atk * 100/255) + '%';
+        attackBar.style.width = (pokemon.stats.atk * 100 / 255) + '%';
         attackBarContainer.appendChild(attackBar);
 
         const defense = document.createElement('p');
@@ -221,7 +224,7 @@ const main = {
         statBar.appendChild(defenseBarContainer);
         const defenseBar = document.createElement('div');
         defenseBar.classList.add('stat-bar');
-        defenseBar.style.width = (pokemon.stats.def * 100/255) + '%';
+        defenseBar.style.width = (pokemon.stats.def * 100 / 255) + '%';
         defenseBarContainer.appendChild(defenseBar);
 
         const specialAttack = document.createElement('p');
@@ -232,7 +235,7 @@ const main = {
         statBar.appendChild(specialAttackBarContainer);
         const specialAttackBar = document.createElement('div');
         specialAttackBar.classList.add('stat-bar');
-        specialAttackBar.style.width = (pokemon.stats.spe_atk * 100/255) + '%';
+        specialAttackBar.style.width = (pokemon.stats.spe_atk * 100 / 255) + '%';
         specialAttackBarContainer.appendChild(specialAttackBar);
 
         const specialDefense = document.createElement('p');
@@ -243,7 +246,7 @@ const main = {
         statBar.appendChild(specialDefenseBarContainer);
         const specialDefenseBar = document.createElement('div');
         specialDefenseBar.classList.add('stat-bar');
-        specialDefenseBar.style.width = (pokemon.stats.spe_def * 100/255) + '%';
+        specialDefenseBar.style.width = (pokemon.stats.spe_def * 100 / 255) + '%';
         specialDefenseBarContainer.appendChild(specialDefenseBar);
 
         const speed = document.createElement('p');
@@ -254,10 +257,34 @@ const main = {
         statBar.appendChild(speedBarContainer);
         const speedBar = document.createElement('div');
         speedBar.classList.add('stat-bar');
-        speedBar.style.width = (pokemon.stats.vit * 100/255) + '%';
+        speedBar.style.width = (pokemon.stats.vit * 100 / 255) + '%';
 
         speedBarContainer.appendChild(speedBar);
         infoRight.appendChild(statBar);
+    },
 
-    }
+    handleCreateAboutBubble: function () {
+        const about = document.getElementById('about');
+        const aboutBubble = document.getElementById('about-bubble');
+        about.addEventListener('click', function (event) {
+            event.stopPropagation();
+
+            console.log('testblick');
+
+            if (main.currentAboutBubble) {
+                main.currentAboutBubble.style.display = 'none';
+            }
+            aboutBubble.style.display = (aboutBubble.style.display === 'none' || aboutBubble.style.display === '') ? 'block' : 'none';
+
+            const closeButton = document.createElement('span');
+            closeButton.textContent = '✖';
+            closeButton.classList.add('about-close-button');
+            aboutBubble.appendChild(closeButton);
+
+            closeButton.addEventListener('click', function (event) {
+                event.stopPropagation();
+                aboutBubble.style.display = 'none';
+            });
+        });
+    },
 };
