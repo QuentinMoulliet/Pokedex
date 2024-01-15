@@ -81,11 +81,14 @@ label {
 select {
     background-color: transparent;
     border: none;
+    align-items: center;
+    justify-content: center;
 }
 
 option {
     background-color: #8f3636;
-    border-radius: 1rem;
+    align-items: center;
+    justify-content: center;
 }
 
 /* display cards */
