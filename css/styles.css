@@ -402,6 +402,10 @@ option {
         gap: 0.2rem;
     }
 
+    .pokemon-card img {
+        filter: grayscale(0.4);
+    }
+
     /* info bubble */
 
     .bubble {
@@ -476,6 +480,10 @@ option {
     #about-bubble {
         height: auto;
         width: 50vw;
+    }
+
+    .about-close-button {
+        font-size: 1rem;
     }
 }
 
