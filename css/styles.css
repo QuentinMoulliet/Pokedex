@@ -475,6 +475,12 @@ option {
         margin-bottom: 0.5rem;
     }
 
+    .close-button {
+        margin-top: 1rem;
+        margin-right: 1rem;
+        color:#8f3636;
+    }
+
     /* footer */
 
     #about-bubble {
