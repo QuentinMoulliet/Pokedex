@@ -23,7 +23,6 @@ const main = {
     displayPokemons: function (pokemons) {
         const pokemonCardElement = document.querySelector('.display');
         pokemons.shift();
-
         pokemons.forEach(pokemon => {
             const cardElement = document.createElement('div');
             cardElement.classList.add('pokemon-card');
@@ -36,7 +35,7 @@ const main = {
 
             const name = document.createElement('p');
             name.classList.add('pokemon-title');
-            name.textContent = '#' + pokemon.pokedexId + ' ' + pokemon.name.fr;
+            name.textContent = '#' + pokemon.pokedex_id + ' ' + pokemon.name.fr;
             cardElement.appendChild(name);
 
             const types = document.createElement('div');
