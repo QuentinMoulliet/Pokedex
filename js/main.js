@@ -113,7 +113,7 @@ const main = {
 
         const name = document.createElement('p');
         name.id = 'name';
-        name.textContent = '#' + pokemon.pokedexId + ' ' + pokemon.name.fr;
+        name.textContent = '#' + pokemon.pokedex_id + ' ' + pokemon.name.fr;
         infoHeader.appendChild(name);
 
         const types = document.createElement('div');
