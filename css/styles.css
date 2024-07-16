@@ -2,6 +2,7 @@ body {
     background: url('../image/paysage-fantastique-trous-sans-fin.jpg') no-repeat center center fixed;
     background-size: cover;
     font-family: 'VT323', monospace;
+    padding-bottom: 5rem;
 }
 
 main {
@@ -72,7 +73,7 @@ label {
     display: flex;
     flex-direction: column;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-left : 1rem;
     gap: 1rem;
 }
@@ -115,7 +116,7 @@ option {
 }
 
 .pokemon-title {
-    font-size: 3rem;
+    font-size: 2rem;
     margin: 1rem;
     text-align: center;
     color: #C14040;
