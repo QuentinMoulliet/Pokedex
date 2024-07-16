@@ -1,13 +1,20 @@
 body {
-    background-color: #800404;
+    background: url('../image/paysage-fantastique-trous-sans-fin.jpg') no-repeat center center fixed;
+    background-size: cover;
     font-family: 'VT323', monospace;
+}
+
+main {
+    padding: 0 20rem 0 20rem;
 }
 
 h1 {
     text-align: center;
     font-size: 3rem;
     margin: 9rem 5rem 3rem;
-    color: white;
+    color: rgb(0, 0, 0);
+    text-shadow: 5px 5px 10px #ffffff;
+    overflow: hidden;
 }
 
 #types-filter,
@@ -51,6 +58,7 @@ h1 {
     padding-left: 1rem;
     text-align: center;
     background: linear-gradient(50deg, #502020, #150808);
+    color: white;
 }
 
 label {
@@ -58,40 +66,42 @@ label {
     margin-right: 1rem;
 }
 
-.filter-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .filter-bar {
     position: fixed;
     z-index: 999;
     display: flex;
-    top: 3.5rem;
-    font-size: 1.5rem;
-    margin: 0.5rem;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-left : 1rem;
     gap: 1rem;
 }
 
 .filter {
     display: flex;
-    gap: 1rem;
     border-radius: 2rem;
     background: linear-gradient(10deg, #0f0f0f, #800404, black);
-    padding: 0.2rem 1rem;
     align-items: center;
     color: #ffffff;
+    padding: 0.5rem 1rem;
+}
+
+.filter-gap {
+    gap : 8rem;
 }
 
 select {
     background-color: transparent;
     border: none;
     color: white;
+    cursor: pointer;
+    text-align: center;
 }
 
 option {
     background-color: #800404;
+    cursor: pointer;
+    text-align: center;
 }
 
 /* display cards */
@@ -99,7 +109,7 @@ option {
 .display {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 2rem;
     margin: 2rem;
     justify-content: center;
 }
@@ -111,22 +121,26 @@ option {
     color: #C14040;
 }
 
-.display img {
-    width: 20rem;
-    height: 20rem;
-}
-
 .pokemon-card {
+    width: 20rem;
+    height: 15rem;
     position: relative;
     border-radius: 0.5rem;
     box-shadow: 5px 5px 10px #edbc06;
     overflow: hidden;
     background: linear-gradient(25deg, #0f0f0f, #800404, black);
     transition: all 0.5s ease;
+    align-items: center;
+    cursor: pointer;
+}
+
+.card-image {
+    display: flex;
+    justify-content: center;
 }
 
 .pokemon-card img {
-    transition: all 0.5s ease;
+    transition: all 1s ease;
 }
 
 .pokemon-card::after {
@@ -139,7 +153,7 @@ option {
     opacity: 0;
     transform: rotate(30deg);
     background: linear-gradient(to right, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.13) 77%, rgba(255, 255, 255, 0.5) 92%, rgba(255, 255, 255, 0) 100%);
-    transition: left 1s ease, top 1s ease, opacity 1s ease;
+    transition: left 1.5s ease, top 1.5s ease, opacity 1.5s ease;
 }
 
 .pokemon-card:hover::after {
@@ -147,10 +161,14 @@ option {
     left: 150%;
 }
 
-#hover-image:hover {
-    transform: scale(1.2) rotate(0.02turn);
-    transition: all 0.5s ease;
+#hover-image {
+    width: 10rem;
+    height: 10rem;
 }
+.pokemon-card:hover #hover-image {
+    transform: translateY(-10px);
+}
+
 
 /* bubble */
 
@@ -169,15 +187,6 @@ option {
     z-index: 999;
 }
 
-.bubble img {
-    filter: grayscale(0);
-}
-
-.bubble:hover img {
-    transform: scale(1.2) rotate(1turn);
-    transition: all 0.8s ease;
-}
-
 .close-button {
     cursor: pointer;
     font-size: 2rem;
@@ -185,6 +194,16 @@ option {
     top: 0;
     right: 0;
     margin: 1.5rem;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+
+.bubble:hover #image {
+    animation: float 3s infinite;
 }
 
 /* stats bubble */
@@ -286,10 +305,12 @@ option {
 
 #copyright {
     font-size: 1rem;
+    color: white;
 }
 
 #about {
     cursor: pointer;
+    color: white;
 }
 
 #about-bubble {
@@ -321,6 +342,40 @@ option {
     top: 0;
     right: 0;
     margin: 0.5rem;
+}
+
+@media screen and (max-width: 1727px) {
+
+    main {
+        padding: 0 12rem 0 12rem;
+    }
+}
+
+@media screen and (max-width: 1694px) {
+
+    main {
+        padding: 0 10rem 0 10rem;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+
+    h1 {
+        margin: 10rem 1rem 0;
+    }
+
+    .filter-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .filter-bar {
+        top: 4rem;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: 0.2rem;
+    }
 }
 
 @media screen and (max-width: 1200px) {
@@ -362,8 +417,13 @@ option {
         font-size: 2rem;
     }
 
+    .filter-container {
+        display: flex;
+        justify-content: center;
+    }
+
     .filter-bar {
-        top: 5rem;
+        top: 5.5rem;
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
@@ -450,6 +510,13 @@ option {
 
     .about-close-button {
         font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    main {
+        padding: 0;
     }
 }
 

@@ -17,6 +17,7 @@ const main = {
         api.requestAPI(url)
             .then(allPokemons => {
                 main.displayPokemons(allPokemons);
+                console.log(allPokemons);
             });
     },
 
@@ -31,7 +32,11 @@ const main = {
             const image = document.createElement('img');
             image.id = 'hover-image';
             image.src = pokemon.sprites.regular;
-            cardElement.appendChild(image);
+            const imageContainer = document.createElement('div');
+            imageContainer.className = 'card-image';
+            imageContainer.appendChild(image);
+            cardElement.appendChild(imageContainer);
+
 
             const name = document.createElement('p');
             name.classList.add('pokemon-title');
