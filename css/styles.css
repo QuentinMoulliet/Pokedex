@@ -133,6 +133,7 @@ option {
     transition: all 0.5s ease;
     align-items: center;
     cursor: pointer;
+    border: 0.2rem solid #000;
 }
 
 .card-image {
@@ -214,7 +215,7 @@ option {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background: linear-gradient(25deg, #0f0f0f, #800404, black);
+    background: url('../image/pxfuel.jpg') no-repeat center center fixed;
     border-radius: 0.9rem;
 }
 
@@ -227,11 +228,12 @@ option {
 
 .info-right {
     width: 70%;
-    background-color: #7e0000;
+    background-color: #ad2424;
     border-radius: 1rem;
     padding: 1rem;
     margin: 1rem;
     font-size: 1.8rem;
+    border: 0.2rem solid #000;
 }
 
 .info-header {
@@ -275,16 +277,61 @@ option {
     margin-bottom: 0.5rem;
 }
 
-.stat-bar-container {
-    width: 70%;
+.stat-bar-details {
+    width: 80%;
     background-color: #fff;
     border-radius: 0.5rem;
 }
 
 .stat-bar {
+    width: 50%;
     height: 1rem;
     background-color: #000;
     border-radius: 0.5rem;
+}
+
+.stat-bar-container h4 {
+    margin: 0;
+    text-align: center;
+}
+
+.stat-bar-container {
+    display: flex;
+}
+
+.stat-bar-container-left {
+    width: 50%;
+    border-right: #000 0.2rem solid;
+}
+
+.stat-bar-container-right {
+    width: 50%;
+}
+
+#evolution-conditions-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+#evolution-conditions-container p {
+    font-size: 1.5rem;
+}
+
+
+#pre-evolution-image, #next-evolution-image {
+    width: 5rem;
+    height: 5rem;
+}
+
+#pre-evolution-condition {
+    margin-bottom: 1rem;
+}
+
+#next-evolution-condition {
+    margin-top: 0.5rem;
 }
 
 /* footer */
