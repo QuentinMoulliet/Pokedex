@@ -18,52 +18,57 @@
 
 <body>
     <header>
-        <nav class="navbar">
+        <nav class="navbar theme-red">
             <p><a href="https://quentinmoulliet.github.io/Pokedex/">Pokédex</a></p>
+            <div class="theme-choice">
+                <img src="image/pokeball_blue.png" alt="" id="theme-blue" class="theme-button">
+                <img src="image/pokeball_red.png" alt="" id="theme-red" class="theme-button">
+                <img src="image/pokeball_green.png" alt="" id="theme-green" class="theme-button">
+            </div>
             <div class="search-bar">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="search" id="search-input" oninput="search.searchBar()">
+                <input type="search" id="search-input" class="theme-red" oninput="search.searchBar()">
             </div>
         </nav>
         <div class="filter-container">
             <nav class="filter-bar">
-                <div class="filter filter-gap">
+                <div class="filter filter-gap theme-red">
                     <p>Type:</p>
                     <select name="type" id="type-select" onclick="filter.handleFilters()">
-                        <option value="all">Tous</option>
-                        <option value="Acier">Acier</option>
-                        <option value="Combat">Combat</option>
-                        <option value="Dragon">Dragon</option>
-                        <option value="Eau">Eau</option>
-                        <option value="Électrik">Électrik</option>
-                        <option value="Fée">Fée</option>
-                        <option value="Feu">Feu</option>
-                        <option value="Glace">Glace</option>
-                        <option value="Insecte">Insecte</option>
-                        <option value="Normal">Normal</option>
-                        <option value="Plante">Plante</option>
-                        <option value="Poison">Poison</option>
-                        <option value="Psy">Psy</option>
-                        <option value="Roche">Roche</option>
-                        <option value="Sol">Sol</option>
-                        <option value="Spectre">Spectre</option>
-                        <option value="Ténèbres">Ténèbres</option>
-                        <option value="Vol">Vol</option>
+                        <option class="theme-red" value="all">Tous</option>
+                        <option class="theme-red" value="Acier">Acier</option>
+                        <option class="theme-red" value="Combat">Combat</option>
+                        <option class="theme-red" value="Dragon">Dragon</option>
+                        <option class="theme-red" value="Eau">Eau</option>
+                        <option class="theme-red" value="Électrik">Électrik</option>
+                        <option class="theme-red" value="Fée">Fée</option>
+                        <option class="theme-red" value="Feu">Feu</option>
+                        <option class="theme-red" value="Glace">Glace</option>
+                        <option class="theme-red" value="Insecte">Insecte</option>
+                        <option class="theme-red" value="Normal">Normal</option>
+                        <option class="theme-red" value="Plante">Plante</option>
+                        <option class="theme-red" value="Poison">Poison</option>
+                        <option class="theme-red" value="Psy">Psy</option>
+                        <option class="theme-red" value="Roche">Roche</option>
+                        <option class="theme-red" value="Sol">Sol</option>
+                        <option class="theme-red" value="Spectre">Spectre</option>
+                        <option class="theme-red" value="Ténèbres">Ténèbres</option>
+                        <option class="theme-red" value="Vol">Vol</option>
                     </select>
                 </div>
-                <div class="filter">
+                <div class="filter theme-red">
                     <p>Génération:</p>
                     <select name="generation" id="generation-select" onclick="filter.handleFilters()">
-                        <option value="all">Toutes</option>
-                        <option value="1">Rouge, Bleu, Jaune</option>
-                        <option value="2">Or, Argent</option>
-                        <option value="3">Rubis, Saphir</option>
-                        <option value="4">Diamant, Perle, Platine</option>
-                        <option value="5">Noir, Blanc</option>
-                        <option value="6">X, Y</option>
-                        <option value="7">Soleil, Lune</option>
-                        <option value="8">Épée, Boulier</option>
-                        <option value="9">Écarlate, Violet</option>
+                        <option class="theme-red" value="all">Toutes</option>
+                        <option class="theme-red" value="1">Rouge, Bleu, Jaune</option>
+                        <option class="theme-red" value="2">Or, Argent</option>
+                        <option class="theme-red" value="3">Rubis, Saphir</option>
+                        <option class="theme-red" value="4">Diamant, Perle, Platine</option>
+                        <option class="theme-red" value="5">Noir, Blanc</option>
+                        <option class="theme-red" value="6">X, Y</option>
+                        <option class="theme-red" value="7">Soleil, Lune</option>
+                        <option class="theme-red" value="8">Épée, Boulier</option>
+                        <option class="theme-red" value="9">Écarlate, Violet</option>
                     </select>
                 </div>
             </nav>
@@ -75,11 +80,11 @@
         <section class="display"></section>
     </main>
     <footer>
-        <div class="footer">
+        <div class="footer theme-red">
             <p id="about">A propos</p>
             <p id="copyright">© 2024 - Copyright </p>
         </div>
-        <div id="about-bubble">
+        <div id="about-bubble" class="theme-red">
             <h2>A propos de : Pokédex</h2>
             <p> Cette application web a été développée pour seul but d'entraînement suite à une formation de développeur
                 web. Elle a été conçue grâce aux langages suivants : <br>
@@ -96,6 +101,7 @@
     </footer>
     <script src="js/app.js"></script>
     <script src="js/api.js"></script>
+    <script src="js/theme.js"></script>
     <script src="js/main.js"></script>
     <script src="js/bubble.js"></script>
     <script src="js/search.js"></script>
