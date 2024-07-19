@@ -25,13 +25,14 @@ const main = {
         const pokemonCardElement = document.querySelector('.display');
         pokemons.shift();
         pokemons.forEach(pokemon => {
+
             const cardElement = document.createElement('div');
-            cardElement.classList.add('pokemon-card', 'theme-red');
+            cardElement.classList.add('pokemon-card', 'theme-red-linear');
 
             const localPokemonCardTheme = localStorage.getItem('colorTheme');
             if (localPokemonCardTheme) {
-                cardElement.classList.remove('theme-red');
-                cardElement.classList.add(localPokemonCardTheme);
+                cardElement.classList.remove('theme-red-linear', 'theme-blue-linear', 'theme-green-linear');
+                cardElement.classList.add(localPokemonCardTheme + '-linear');
             }
             pokemonCardElement.appendChild(cardElement);
 
@@ -123,11 +124,9 @@ const main = {
             }
         });
     },
-    
 
     handleAddInfoBubble: function (infoBubble, pokemon, pokemons) {
-
-
+        
         infoBubble.innerHTML = '';
 
         const info = document.createElement('div');
@@ -144,7 +143,14 @@ const main = {
         infoLeft.appendChild(image);
 
         const infoRight = document.createElement('div');
-        infoRight.classList.add('info-right', 'theme-red');
+        infoRight.classList.add('info-right', 'theme-red-bgc');
+
+        const localInfoRightTheme = localStorage.getItem('colorTheme');
+            if (localInfoRightTheme) {
+                infoRight.classList.remove('theme-red-bgc', 'theme-blue-bgc', 'theme-green-bgc');
+                infoRight.classList.add(localInfoRightTheme + '-bgc');
+            }
+
         info.appendChild(infoRight);
 
         const localTheme = localStorage.getItem('colorTheme');

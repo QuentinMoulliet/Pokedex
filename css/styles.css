@@ -54,21 +54,29 @@ h1 {
     height: 2rem;
 }
 
-.theme-blue {
+.theme-blue-linear {
     background: linear-gradient(10deg, #0f0f0f, #3e1fe9, black);
+}
+
+.theme-blue-bgc {
     background-color: rgb(55, 55, 224);
 }
 
-.theme-red {
+.theme-red-linear {
     background: linear-gradient(10deg, #0f0f0f, #a71010, black);
+}
+
+.theme-red-bgc {
     background-color: rgb(165, 39, 39);
 }
 
-.theme-green {
+.theme-green-linear {
     background: linear-gradient(10deg, #0f0f0f, #10a710, black);
-    background-color: rgb(58, 184, 58);
 }
 
+.theme-green-bgc {
+    background-color: rgb(58, 184, 58);
+}
 
 .search-bar {
     margin-right: 1rem;
@@ -124,7 +132,6 @@ select {
 }
 
 option {
-    background: #000;
     cursor: pointer;
     text-align: center;
 }
@@ -215,10 +222,11 @@ option {
 .close-button {
     cursor: pointer;
     font-size: 2rem;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     margin: 1.5rem;
+    z-index: 1001;
 }
 
 @keyframes float {
