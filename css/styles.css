@@ -65,6 +65,7 @@ h1 {
 
 .theme-blue-bgc {
     background-color: rgb(55, 55, 224);
+    opacity: 0.85;
 }
 
 .theme-red-linear {
@@ -73,6 +74,7 @@ h1 {
 
 .theme-red-bgc {
     background-color: rgb(165, 39, 39);
+    opacity: 0.85;
 }
 
 .theme-green-linear {
@@ -81,6 +83,7 @@ h1 {
 
 .theme-green-bgc {
     background-color: rgb(58, 184, 58);
+    opacity: 0.85;
 }
 
 .search-bar {
