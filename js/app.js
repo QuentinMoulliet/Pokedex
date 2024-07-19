@@ -4,8 +4,9 @@ const app = {
         main.init();
         search.init();
         theme.init();
-        filter.init();
         slider.init();
+        filter.init();
+        sliderBubble.init();
     }
 };
 

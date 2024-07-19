@@ -72,49 +72,49 @@ const main = {
         const infoBubble = document.createElement('div');
         infoBubble.classList.add('bubble');
         cardElement.appendChild(infoBubble);
-    
+
         // Fonction pour fermer la bulle d'information
-        const closeInfoBubble = function() {
+        const closeInfoBubble = function () {
             if (main.currentInfoBubble) {
                 main.currentInfoBubble.style.display = 'none';
             }
             infoBubble.style.display = 'none';
         };
-    
+
         // Gestionnaire de clic sur la carte pour ouvrir la bulle
         cardElement.addEventListener('click', function (event) {
             event.stopPropagation();
-    
+
             // Fermer la bulle d'information actuelle si elle est ouverte
             closeInfoBubble();
-    
+
             // Afficher ou cacher la bulle en fonction de son état actuel
             infoBubble.style.display = (infoBubble.style.display === 'none' || infoBubble.style.display === '') ? 'block' : 'none';
             main.currentInfoBubble = infoBubble;
-    
+
             // Appel de la fonction pour ajouter le contenu de la bulle d'information
             main.handleAddInfoBubble(infoBubble, pokemon, pokemons);
-    
+
             // Ajouter un bouton de fermeture à la bulle
             const closeButton = document.createElement('span');
             closeButton.textContent = '✖';
             closeButton.classList.add('close-button');
             infoBubble.appendChild(closeButton);
-    
+
             // Gestionnaire de clic sur le bouton de fermeture
             closeButton.addEventListener('click', function (event) {
                 event.stopPropagation();
                 closeInfoBubble();
             });
         });
-    
+
         // Gestionnaire de clic sur le document pour fermer la bulle en dehors
         document.addEventListener('click', function (event) {
             if (main.currentInfoBubble && event.target !== cardElement && !cardElement.contains(event.target)) {
                 closeInfoBubble();
             }
         });
-    
+
         // Gestionnaire de touche échap pour fermer la bulle
         document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape') {
@@ -124,12 +124,14 @@ const main = {
     },
 
     handleAddInfoBubble: function (infoBubble, pokemon, pokemons) {
-        
+
         infoBubble.innerHTML = '';
 
         const info = document.createElement('div');
         info.classList.add('info');
         infoBubble.appendChild(info);
+        info.dataset.bubbleDataSet = 'infoBackground';
+
 
         const infoLeft = document.createElement('div');
         infoLeft.classList.add('info-left');
@@ -144,10 +146,10 @@ const main = {
         infoRight.classList.add('info-right', 'theme-red-bgc');
 
         const localInfoRightTheme = localStorage.getItem('colorTheme');
-            if (localInfoRightTheme) {
-                infoRight.classList.remove('theme-red-bgc', 'theme-blue-bgc', 'theme-green-bgc');
-                infoRight.classList.add(localInfoRightTheme + '-bgc');
-            }
+        if (localInfoRightTheme) {
+            infoRight.classList.remove('theme-red-bgc', 'theme-blue-bgc', 'theme-green-bgc');
+            infoRight.classList.add(localInfoRightTheme + '-bgc');
+        }
 
         info.appendChild(infoRight);
 
@@ -337,50 +339,50 @@ const main = {
 
         if (pokemon.evolution.pre && pokemon.evolution.pre.length > 0) {
             pokemon.evolution.pre.forEach((preEvolution) => {
-        
+
                 const preEvolutionDiv = document.createElement('div');
                 preEvolutionDiv.className = 'evolution';
-        
+
                 const preEvolutionName = document.createElement('p');
                 preEvolutionName.id = 'pre-evolution-name';
                 preEvolutionName.textContent = preEvolution.name;
                 preEvolutionDiv.appendChild(preEvolutionName);
-        
+
                 const preEvolutionImage = document.createElement('img');
                 preEvolutionImage.id = 'pre-evolution-image';
                 preEvolutionImage.src = pokemons[preEvolution.pokedex_id - 1].sprites.regular;
                 preEvolutionDiv.appendChild(preEvolutionImage);
-        
+
                 const preEvolutionCondition = document.createElement('p');
                 preEvolutionCondition.id = 'pre-evolution-condition';
                 preEvolutionCondition.textContent = 'Requis: ' + preEvolution.condition;
                 preEvolutionDiv.appendChild(preEvolutionCondition);
-        
+
                 evolutionConditionsContainer.appendChild(preEvolutionDiv);
             });
         }
-        
+
         if (pokemon.evolution.next && pokemon.evolution.next.length > 0) {
             pokemon.evolution.next.forEach((nextEvolution) => {
-        
+
                 const nextEvolutionDiv = document.createElement('div');
                 nextEvolutionDiv.className = 'evolution';
-        
+
                 const nextEvolutionName = document.createElement('p');
                 nextEvolutionName.id = 'next-evolution-name';
                 nextEvolutionName.textContent = nextEvolution.name;
                 nextEvolutionDiv.appendChild(nextEvolutionName);
-        
+
                 const nextEvolutionImage = document.createElement('img');
                 nextEvolutionImage.id = 'next-evolution-image';
                 nextEvolutionImage.src = pokemons[nextEvolution.pokedex_id - 1].sprites.regular;
                 nextEvolutionDiv.appendChild(nextEvolutionImage);
-        
+
                 const nextEvolutionCondition = document.createElement('p');
                 nextEvolutionCondition.id = 'next-evolution-condition';
                 nextEvolutionCondition.textContent = 'Requis: ' + nextEvolution.condition;
                 nextEvolutionDiv.appendChild(nextEvolutionCondition);
-        
+
                 evolutionConditionsContainer.appendChild(nextEvolutionDiv);
             });
         }
