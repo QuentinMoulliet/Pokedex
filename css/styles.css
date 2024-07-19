@@ -45,6 +45,9 @@ h1 {
 }
 
 .theme-choice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 1rem;
     margin-left: 12rem;
 }
@@ -336,32 +339,35 @@ option {
 
 .stat-bar-container-right {
     width: 50%;
+    margin-left: 1rem;
 }
 
-#evolution-conditions-container {
+#evolution-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    gap : 5rem;
+}
+
+.evolution {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin-top: 1rem;
 }
 
-#evolution-conditions-container p {
-    font-size: 1.5rem;
+#pre-evolution-name, #next-evolution-name {
+    font-size: 2rem;
 }
-
 
 #pre-evolution-image, #next-evolution-image {
-    width: 5rem;
-    height: 5rem;
+    width: 7rem;
+    height: 7rem;
 }
 
-#pre-evolution-condition {
-    margin-bottom: 1rem;
-}
-
-#next-evolution-condition {
-    margin-top: 0.5rem;
+#pre-evolution-condition, #next-evolution-condition {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    text-align: center;
 }
 
 /* footer */
@@ -453,6 +459,10 @@ option {
         align-items: center;
         gap: 0.2rem;
     }
+
+    #evolution-container {
+        gap : 2rem;
+    }
 }
 
 @media screen and (max-width: 1200px) {
@@ -481,7 +491,7 @@ option {
     }
 
     .theme-choice {
-        margin : 0;
+        margin: 0.5rem 0 0.5rem 0;
     }
 
     .display {
@@ -493,7 +503,7 @@ option {
     }
 
     h1 {
-        margin: 14rem 1rem 0;
+        margin: 15rem 1rem 0;
         font-size: 2rem;
     }
 
@@ -503,7 +513,7 @@ option {
     }
 
     .filter-bar {
-        top: 8rem;
+        top: 8.5rem;
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
@@ -585,7 +595,7 @@ option {
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
 
     main {
         padding: 0;
@@ -622,6 +632,19 @@ option {
     #stat-title {
         margin-bottom: 1rem;
     }
+
+    #pre-evolution-name, #next-evolution-name {
+        font-size: 1.7rem;
+    }
+    
+    #pre-evolution-image, #next-evolution-image {
+        width: 6rem;
+        height: 6rem;
+    }
+
+    #pre-evolution-condition, #next-evolution-condition {
+        font-size: 1.2rem;
+    }
 }
 
 @media screen and (max-width: 390px) {
@@ -629,5 +652,23 @@ option {
     .filter:last-child {
         display: block;
         text-align: center;
+    }
+
+    h1 {
+        margin: 15rem 1rem 0;
+        font-size: 2rem;
+    }
+
+    #pre-evolution-name, #next-evolution-name {
+        font-size: 1.5rem;
+    }
+    
+    #pre-evolution-image, #next-evolution-image {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    #pre-evolution-condition, #next-evolution-condition {
+        font-size: 1rem;
     }
 }

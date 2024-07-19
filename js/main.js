@@ -36,7 +36,6 @@ const main = {
             }
             pokemonCardElement.appendChild(cardElement);
 
-
             const image = document.createElement('img');
             image.id = 'hover-image';
             image.src = pokemon.sprites.regular;
@@ -45,7 +44,6 @@ const main = {
             imageContainer.className = 'card-image';
             imageContainer.appendChild(image);
             cardElement.appendChild(imageContainer);
-
 
             const name = document.createElement('p');
             name.classList.add('pokemon-title');
@@ -335,46 +333,55 @@ const main = {
         statBarContainerRight.appendChild(evolutionTitle);
 
         const evolutionConditionsContainer = document.createElement('div');
-        evolutionConditionsContainer.id = 'evolution-conditions-container';
+        evolutionConditionsContainer.id = 'evolution-container';
 
         if (pokemon.evolution.pre && pokemon.evolution.pre.length > 0) {
             pokemon.evolution.pre.forEach((preEvolution) => {
-
+        
+                const preEvolutionDiv = document.createElement('div');
+                preEvolutionDiv.className = 'evolution';
+        
                 const preEvolutionName = document.createElement('p');
                 preEvolutionName.id = 'pre-evolution-name';
                 preEvolutionName.textContent = preEvolution.name;
-                evolutionConditionsContainer.appendChild(preEvolutionName);
-
+                preEvolutionDiv.appendChild(preEvolutionName);
+        
                 const preEvolutionImage = document.createElement('img');
                 preEvolutionImage.id = 'pre-evolution-image';
                 preEvolutionImage.src = pokemons[preEvolution.pokedex_id - 1].sprites.regular;
-                evolutionConditionsContainer.appendChild(preEvolutionImage);
-
+                preEvolutionDiv.appendChild(preEvolutionImage);
+        
                 const preEvolutionCondition = document.createElement('p');
                 preEvolutionCondition.id = 'pre-evolution-condition';
-                preEvolutionCondition.textContent = preEvolution.condition;
-                evolutionConditionsContainer.appendChild(preEvolutionCondition);
-
+                preEvolutionCondition.textContent = 'Requis: ' + preEvolution.condition;
+                preEvolutionDiv.appendChild(preEvolutionCondition);
+        
+                evolutionConditionsContainer.appendChild(preEvolutionDiv);
             });
         }
-
+        
         if (pokemon.evolution.next && pokemon.evolution.next.length > 0) {
             pokemon.evolution.next.forEach((nextEvolution) => {
-
+        
+                const nextEvolutionDiv = document.createElement('div');
+                nextEvolutionDiv.className = 'evolution';
+        
                 const nextEvolutionName = document.createElement('p');
                 nextEvolutionName.id = 'next-evolution-name';
                 nextEvolutionName.textContent = nextEvolution.name;
-                evolutionConditionsContainer.appendChild(nextEvolutionName);
-
+                nextEvolutionDiv.appendChild(nextEvolutionName);
+        
                 const nextEvolutionImage = document.createElement('img');
                 nextEvolutionImage.id = 'next-evolution-image';
                 nextEvolutionImage.src = pokemons[nextEvolution.pokedex_id - 1].sprites.regular;
-                evolutionConditionsContainer.appendChild(nextEvolutionImage);
-
+                nextEvolutionDiv.appendChild(nextEvolutionImage);
+        
                 const nextEvolutionCondition = document.createElement('p');
                 nextEvolutionCondition.id = 'next-evolution-condition';
-                nextEvolutionCondition.textContent = nextEvolution.condition;
-                evolutionConditionsContainer.appendChild(nextEvolutionCondition);
+                nextEvolutionCondition.textContent = 'Requis: ' + nextEvolution.condition;
+                nextEvolutionDiv.appendChild(nextEvolutionCondition);
+        
+                evolutionConditionsContainer.appendChild(nextEvolutionDiv);
             });
         }
         statBarContainerRight.appendChild(evolutionConditionsContainer);
