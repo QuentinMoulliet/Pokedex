@@ -1,9 +1,11 @@
 body {
-    background: url('../image/paysage-fantastique-trous-sans-fin.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background-color: grey;
     font-family: 'VT323', monospace;
     padding-bottom: 5rem;
     color: white;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 main {
@@ -13,7 +15,7 @@ main {
 h1 {
     text-align: center;
     font-size: 3rem;
-    margin: 9rem 5rem 3rem;
+    margin: 7rem 5rem 3rem;
     color: rgb(0, 0, 0);
     text-shadow: 5px 5px 10px #ffffff;
     overflow: hidden;
@@ -249,7 +251,10 @@ option {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background: url('../image/pxfuel.jpg') no-repeat center center fixed;
+    background: url('../image/bb1.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
     border-radius: 0.9rem;
 }
 

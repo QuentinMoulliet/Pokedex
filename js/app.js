@@ -3,6 +3,9 @@ const app = {
         api.init();
         main.init();
         search.init();
+        theme.init();
+        filter.init();
+        slider.init();
     }
 };
 
