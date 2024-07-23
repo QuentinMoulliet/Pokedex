@@ -128,10 +128,13 @@ const main = {
         infoBubble.innerHTML = '';
 
         const info = document.createElement('div');
-        info.classList.add('info');
+        info.classList.add('info', 'theme-red-linear');
+        const localInfoTheme = localStorage.getItem('colorTheme');
+        if (localInfoTheme) {
+            info.classList.remove('theme-red-linear', 'theme-blue-linear', 'theme-green-linear');
+            info.classList.add(localInfoTheme + '-linear');
+        }
         infoBubble.appendChild(info);
-        info.dataset.bubbleDataSet = 'infoBackground';
-
 
         const infoLeft = document.createElement('div');
         infoLeft.classList.add('info-left');

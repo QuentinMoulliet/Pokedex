@@ -19,35 +19,33 @@ const theme = {
     },
 
     changeColorThemeLinear: function (themeColor) {
-        const navbarElement = document.querySelector('.navbar');
-        const searchInputElement = document.querySelector('#search-input');
-        const filterElements = document.querySelectorAll('.filter');
-        const pokemonCardElements = document.querySelectorAll('.pokemon-card');
-        const footerElement = document.querySelector('.footer');
-
-            navbarElement.classList.remove('theme-red-linear', 'theme-blue-linear', 'theme-green-linear');
-            navbarElement.classList.add(themeColor);
-
-            searchInputElement.classList.remove('theme-red-linear', 'theme-blue-linear', 'theme-green-linear');
-            searchInputElement.classList.add(themeColor);
-
-            footerElement.classList.remove('theme-red-linear', 'theme-blue-linear', 'theme-green-linear');
-            footerElement.classList.add(themeColor);
-
-        filterElements.forEach(filterElement => {
-            if (filterElement) {
-                filterElement.classList.remove('theme-red-linear', 'theme-blue-linear', 'theme-green-linear');
-                filterElement.classList.add(themeColor);
+        const elementsToChange = [
+            document.querySelector('.navbar'),
+            document.querySelector('#search-input'),
+            document.querySelectorAll('.filter'),
+            document.querySelectorAll('.pokemon-card'),
+            document.querySelector('.info'),
+            document.querySelector('.footer')
+        ];
+    
+        const removeClasses = ['theme-red-linear', 'theme-blue-linear', 'theme-green-linear'];
+    
+        function updateElementClasses(element, themeColor) {
+            if (element) {
+                element.classList.remove(...removeClasses);
+                element.classList.add(themeColor);
             }
-        });
-
-        pokemonCardElements.forEach(pokemonCardElement => {
-            if (pokemonCardElement) {
-                pokemonCardElement.classList.remove('theme-red-linear', 'theme-blue-linear', 'theme-green-linear');
-                pokemonCardElement.classList.add(themeColor);
+        }
+    
+        elementsToChange.forEach(element => {
+            if (NodeList.prototype.isPrototypeOf(element)) {
+                element.forEach(childElement => updateElementClasses(childElement, themeColor));
+            } else {
+                updateElementClasses(element, themeColor);
             }
         });
     },
+    
 
     changeColorThemeBackground: function (themeColor) {
         const infoRightElement = document.querySelector('.info-right');

@@ -6,7 +6,6 @@ const app = {
         theme.init();
         slider.init();
         filter.init();
-        sliderBubble.init();
     }
 };
 
